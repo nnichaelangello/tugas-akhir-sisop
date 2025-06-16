@@ -2,7 +2,7 @@
 
 ## Deskripsi
 
-Proyek ini merupakan tugas akhir mata kuliah Sistem Operasi (Sisop) yang mengimplementasikan sebuah terminal sederhana berbasis Bash untuk Ubuntu. Terminal ini dirancang untuk menampilkan berbagai informasi sistem, seperti uptime, detail jaringan, informasi OS, waktu instalasi, dan data pengguna, dengan antarmuka yang rapi dan fungsional. Proyek ini dikembangkan per 11:30 AM WIB, Senin, 16 Juni 2025.
+Proyek ini merupakan tugas akhir mata kuliah Sistem Operasi (Sisop) yang mengimplementasikan sebuah terminal sederhana berbasis Bash untuk Ubuntu. Terminal ini dirancang untuk menampilkan berbagai informasi sistem, seperti uptime, detail jaringan, informasi OS, waktu instalasi, dan data pengguna, dengan antarmuka yang rapi dan fungsional.
 
 ## Cara Instalasi dan Penggunaan
 
