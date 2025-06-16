@@ -50,7 +50,8 @@ Proyek ini merupakan tugas akhir mata kuliah Sistem Operasi (Sisop) yang mengimp
   ```
   python3 terminal.py
   ```
-  
+
+  ![image](https://github.com/user-attachments/assets/c64f455b-214b-4295-b5df-013d19425200)
 
 ## Fitur
 
@@ -75,6 +76,8 @@ Sebelum `chmod +x`, izin default file biasanya `-rw-r--r--` (notasi oktal: `644`
 - Grup dan pengguna lain hanya memiliki izin **read (r)**, tanpa **write** atau **execute**.
 - File tampak berwarna putih saat diperiksa dengan `ls`, menandakan file biasa tanpa izin eksekusi.
 
+  ![image](https://github.com/user-attachments/assets/b1485737-f0ae-42a1-9aa2-45352a5f70b5)
+
 ### Izin Akses Setelah Diubah
 
 Setelah `chmod +x`, izin berubah menjadi `-rwxr-xr-x` (notasi oktal: `755`), yang berarti:
@@ -82,6 +85,8 @@ Setelah `chmod +x`, izin berubah menjadi `-rwxr-xr-x` (notasi oktal: `755`), yan
 - Pemilik file memiliki izin **read (r)**, **write (w)**, dan **execute (x)**.
 - Grup dan pengguna lain memiliki izin **read (r)** dan **execute (x)**, tetapi tidak **write**.
 - File tampak berwarna hijau saat diperiksa dengan `ls`, menandakan file eksekusi.
+
+  ![image](https://github.com/user-attachments/assets/820c0faf-28ec-4def-bf38-368aa550a307)
 
 ## Penjelasan Fungsi-Fungsi dalam Kode
 
@@ -91,6 +96,8 @@ Setelah `chmod +x`, izin berubah menjadi `-rwxr-xr-x` (notasi oktal: `755`), yan
 - **get_uptime()**
   - **Fungsi**: Menampilkan waktu aktif sistem sejak boot terakhir.
   - **Cara Kerja**: Membaca file `/proc/uptime`, mengonversi detik ke format `datetime.timedelta`, dan mengembalikan string durasi.
+ 
+
 - **get_install_time()**
   - **Fungsi**: Menampilkan perkiraan waktu instalasi sistem operasi.
   - **Cara Kerja**: Menggunakan `os.path.getctime('/')` untuk waktu pembuatan direktori root sebagai aproksimasi, kemudian dikonversi ke format yang dapat dibaca.
@@ -100,18 +107,33 @@ Setelah `chmod +x`, izin berubah menjadi `-rwxr-xr-x` (notasi oktal: `755`), yan
 - **option_1()**
   - **Fungsi**: Menjalankan opsi 1 untuk menampilkan uptime.
   - **Cara Kerja**: Memanggil `get_uptime()` dan mencetak hasilnya.
+    
+    ![image](https://github.com/user-attachments/assets/e70c1334-13fe-45d2-b9a0-78c81c1b40ee)
+    
 - **option_2()**
   - **Fungsi**: Menampilkan informasi jaringan (hostname dan IP address).
   - **Cara Kerja**: Menggunakan `socket.gethostname()` dan `socket.gethostbyname()` untuk data jaringan.
+ 
+    ![image](https://github.com/user-attachments/assets/2cc55533-56b4-4aab-ac2c-20d1a674eff0)
+
 - **option_3()**
   - **Fungsi**: Menampilkan detail sistem operasi.
   - **Cara Kerja**: Menggunakan `platform.platform()` dan `platform.release()` untuk nama dan versi OS.
+ 
+    ![image](https://github.com/user-attachments/assets/4f29baf6-ef14-4b46-b2ce-41b48ab92ebc)
+
 - **option_4()**
   - **Fungsi**: Menjalankan opsi 4 untuk menampilkan waktu instalasi.
   - **Cara Kerja**: Memanggil `get_install_time()` dan mencetak hasilnya.
+ 
+    ![image](https://github.com/user-attachments/assets/bd586773-f368-4d5a-894f-7e3d5c8398a4)
+
 - **option_5()**
   - **Fungsi**: Menampilkan informasi pengguna saat ini.
   - **Cara Kerja**: Menggunakan `getpass.getuser()` untuk nama pengguna yang login.
+
+    ![image](https://github.com/user-attachments/assets/67692f3d-bde4-42a2-bb99-4d82bad0b49c)
+
 - **Loop Utama (while True)**
   - **Fungsi**: Mengelola alur program dengan menampilkan menu dan menangani input pengguna.
   - **Cara Kerja**: Mengulang display menu, membaca pilihan pengguna, memanggil fungsi sesuai input (1-6), dengan opsi keluar atau pesan error untuk input tidak valid.
