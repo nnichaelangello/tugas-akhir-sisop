@@ -63,8 +63,6 @@ Sebelum `chmod +x`, izin default file biasanya `-rw-r--r--` (notasi oktal: `644`
 - Grup dan pengguna lain hanya memiliki izin **read (r)**, tanpa **write** atau **execute**.
 - File tampak berwarna putih saat diperiksa dengan `ls`, menandakan file biasa tanpa izin eksekusi.
 
-  ![image](https://github.com/user-attachments/assets/b1485737-f0ae-42a1-9aa2-45352a5f70b5)
-
 ### Izin Akses Setelah Diubah
 
 Setelah `chmod +x`, izin berubah menjadi `-rwxr-xr-x` (notasi oktal: `755`), yang berarti:
@@ -72,8 +70,6 @@ Setelah `chmod +x`, izin berubah menjadi `-rwxr-xr-x` (notasi oktal: `755`), yan
 - Pemilik file memiliki izin **read (r)**, **write (w)**, dan **execute (x)**.
 - Grup dan pengguna lain memiliki izin **read (r)** dan **execute (x)**, tetapi tidak **write**.
 - File tampak berwarna hijau saat diperiksa dengan `ls`, menandakan file eksekusi.
-
-  ![image](https://github.com/user-attachments/assets/820c0faf-28ec-4def-bf38-368aa550a307)
 
 ## Penjelasan Fungsi-Fungsi dalam Kode
 
