@@ -2,55 +2,42 @@
 
 ## Deskripsi
 
-Proyek ini merupakan tugas akhir mata kuliah Sistem Operasi (Sisop) yang mengimplementasikan sebuah terminal sederhana berbasis Python untuk Ubuntu. Terminal ini dirancang untuk menampilkan berbagai informasi sistem, termasuk uptime, detail jaringan, informasi OS, waktu instalasi, dan data pengguna, dengan antarmuka yang rapi dan fungsional.
+Proyek ini merupakan tugas akhir mata kuliah Sistem Operasi (Sisop) yang mengimplementasikan sebuah terminal sederhana berbasis Bash untuk Ubuntu. Terminal ini dirancang untuk menampilkan berbagai informasi sistem, seperti uptime, detail jaringan, informasi OS, waktu instalasi, dan data pengguna, dengan antarmuka yang rapi dan fungsional. Proyek ini dikembangkan per 11:30 AM WIB, Senin, 16 Juni 2025.
 
 ## Cara Instalasi dan Penggunaan
 
 ### Prasyarat
 
 - **Sistem Operasi**: Ubuntu
-- **Python 3**: Dapat diinstal menggunakan perintah `sudo apt update && sudo apt install python3`
+- **Bash**: Sudah tersedia secara default di Ubuntu (verifikasi dengan `bash --version`)
 
 ### Langkah-langkah Instalasi
 
 1. Buka terminal.
-2. Perbarui paket dan instal Python 3:
+2. Pastikan sistem diperbarui (opsional, tetapi disarankan):
   
   ```
-  sudo apt update && sudo apt install python3
+  sudo apt update
   ```
   
-3. Verifikasi instalasi Python:
+3. Buat file script menggunakan editor `nano`:
   
   ```
-  python3 --version
+  nano terminal.sh
   ```
   
-4. Buat file script menggunakan editor `nano`:
+4. Salin dan tempel kode Bash dari file `terminal.sh` yang disediakan, lalu simpan dengan `Ctrl+O`, tekan Enter, dan keluar dengan `Ctrl+X`.
+5. Berikan izin eksekusi pada file:
   
   ```
-  nano terminal.py
+  chmod +x terminal.sh
   ```
   
-5. Salin dan tempel kode dari file `terminal.py` yang disediakan, lalu simpan dengan `Ctrl+O`, tekan Enter, dan keluar dengan `Ctrl+X`.
-6. Berikan izin eksekusi pada file:
+6. Jalankan script:
   
   ```
-  chmod +x terminal.py
+  ./terminal.sh
   ```
-  
-7. Jalankan script:
-  
-  ```
-  ./terminal.py
-  ```
-  
-  Atau:
-  
-  ```
-  python3 terminal.py
-  ```
-
   ![image](https://github.com/user-attachments/assets/c64f455b-214b-4295-b5df-013d19425200)
 
 ## Fitur
@@ -66,7 +53,7 @@ Proyek ini merupakan tugas akhir mata kuliah Sistem Operasi (Sisop) yang mengimp
 
 ### Mengapa Harus Mengubah Permission?
 
-Perintah `chmod +x terminal.py` diperlukan agar file Python dapat dijalankan langsung sebagai skrip eksekusi (misalnya dengan `./terminal.py`). Tanpa izin eksekusi, sistem operasi tidak akan mengizinkan file tersebut dieksekusi sebagai program karena izin ini menunjukkan hak pengguna untuk menjalankan file.
+Perintah `chmod +x terminal.sh` diperlukan agar file Bash dapat dijalankan langsung sebagai skrip eksekusi (misalnya dengan `./terminal.sh`). Tanpa izin eksekusi, sistem operasi tidak akan mengizinkan file tersebut dieksekusi sebagai program karena izin ini menunjukkan hak pengguna untuk menjalankan file.
 
 ### Izin Akses Sebelum Diubah
 
@@ -92,18 +79,16 @@ Setelah `chmod +x`, izin berubah menjadi `-rwxr-xr-x` (notasi oktal: `755`), yan
 
 - **clear_screen()**
   - **Fungsi**: Membersihkan layar terminal sebelum menampilkan menu baru.
-  - **Cara Kerja**: Menggunakan perintah `clear` via `os.system('clear')` untuk tampilan yang rapi.
+  - **Cara Kerja**: Menggunakan perintah `clear` untuk menyediakan tampilan yang rapi.
 - **get_uptime()**
   - **Fungsi**: Menampilkan waktu aktif sistem sejak boot terakhir.
-  - **Cara Kerja**: Membaca file `/proc/uptime`, mengonversi detik ke format `datetime.timedelta`, dan mengembalikan string durasi.
- 
-
+  - **Cara Kerja**: Membaca `/proc/uptime`, mengonversi detik ke jam, menit, dan detik menggunakan perhitungan Bash, lalu menampilkan hasilnya.
 - **get_install_time()**
   - **Fungsi**: Menampilkan perkiraan waktu instalasi sistem operasi.
-  - **Cara Kerja**: Menggunakan `os.path.getctime('/')` untuk waktu pembuatan direktori root sebagai aproksimasi, kemudian dikonversi ke format yang dapat dibaca.
+  - **Cara Kerja**: Menggunakan `stat -c %y /` untuk mendapatkan waktu pembuatan direktori root sebagai aproksimasi, kemudian memformatnya.
 - **display_menu()**
   - **Fungsi**: Menampilkan menu utama dengan opsi-opsi yang tersedia.
-  - **Cara Kerja**: Membersihkan layar dan mencetak header serta daftar opsi (1-6) dalam format terstruktur.
+  - **Cara Kerja**: Membersihkan layar dan mencetak header serta daftar opsi (1-6) dalam format terstruktur menggunakan `echo`.
 - **option_1()**
   - **Fungsi**: Menjalankan opsi 1 untuk menampilkan uptime.
   - **Cara Kerja**: Memanggil `get_uptime()` dan mencetak hasilnya.
@@ -133,7 +118,7 @@ Setelah `chmod +x`, izin berubah menjadi `-rwxr-xr-x` (notasi oktal: `755`), yan
   - **Cara Kerja**: Menggunakan `getpass.getuser()` untuk nama pengguna yang login.
 
     ![image](https://github.com/user-attachments/assets/67692f3d-bde4-42a2-bb99-4d82bad0b49c)
-
-- **Loop Utama (while True)**
+    
+- **Loop Utama (while true)**
   - **Fungsi**: Mengelola alur program dengan menampilkan menu dan menangani input pengguna.
-  - **Cara Kerja**: Mengulang display menu, membaca pilihan pengguna, memanggil fungsi sesuai input (1-6), dengan opsi keluar atau pesan error untuk input tidak valid.
+  - **Cara Kerja**: Mengulang `display_menu`, membaca input dengan `read`, dan menggunakan `case` untuk memanggil fungsi sesuai pilihan (1-6), dengan opsi keluar atau pesan error untuk input tidak valid.
