@@ -71,6 +71,15 @@ Setelah `chmod +x`, izin berubah menjadi `-rwxr-xr-x` (notasi oktal: `755`), yan
 - Grup dan pengguna lain memiliki izin **read (r)** dan **execute (x)**, tetapi tidak **write**.
 - File tampak berwarna hijau saat diperiksa dengan `ls`, menandakan file eksekusi.
 
+## Menu Yang Dikerjakan
+
+- Menu 1 **Tampilkan Kehidupan Saat Ini**
+- Menu 3 **Informasi Jaringan** yang dimana ini menjadi Menu 2 pada code saya
+- Menu 4 **Tampilkan Detail OS** yang dimana ini menjadi Menu 3 pada code saya
+- Menu 5 **Tampilkan Waktu Install Pertama OS** yang dimana ini menjadi Menu 4 pada code saya
+- Menu 6 **Informasi User** yang dimana ini menjadi Menu 5 pada code saya
+- **Keluar** yang dimana ini menjadi Menu 6 pada code saya
+
 ## Penjelasan Fungsi-Fungsi dalam Kode
 
 - **clear_screen()**
